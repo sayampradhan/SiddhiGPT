@@ -40,7 +40,8 @@ if prompt := st.chat_input("You: "):
         st.markdown(prompt)
     
     # Prepare context
-    context = "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in st.session_state.messages if msg["role"] == "user"])
+    context = "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in st.session_state.messages])
+
     
     try:
         # Generate AI response
