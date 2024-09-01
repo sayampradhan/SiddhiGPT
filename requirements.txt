@@ -1,3 +1,4 @@
 streamlit
 langchain_ollama
 langchain_core
+replicate
