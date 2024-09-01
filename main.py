@@ -43,23 +43,23 @@ if prompt := st.chat_input("You: "):
     context = "\n".join([f"{msg['role'].capitalize()}: {msg['content']}" for msg in st.session_state.messages])
 
     
-    try:
+    # try:
         # Generate AI response
-        if "your name" in prompt.lower():
-            response = "My name is Siddhi, your helpful chatbot!"
-        else:
-            response = chain.invoke({"context": context, "question": prompt})
+    if "your name" in prompt.lower():
+        response = "My name is Siddhi, your helpful chatbot!"
+    else:
+        response = chain.invoke({"context": context, "question": prompt})
+    
+    # Add AI response to chat history with the name "Siddhi"
+    st.session_state.messages.append({"role": "Siddhi", "content": response})
+    
+    # Display AI response with the name "Siddhi"
+    with st.chat_message("Siddhi"):
+        st.markdown(response)
+    # except Exception as e:
+    #     # Handle errors gracefully
+    #     error_message = f"An error occurred: {str(e)}"
+    #     st.session_state.messages.append({"role": "Siddhi", "content": error_message})
         
-        # Add AI response to chat history with the name "Siddhi"
-        st.session_state.messages.append({"role": "Siddhi", "content": response})
-        
-        # Display AI response with the name "Siddhi"
-        with st.chat_message("Siddhi"):
-            st.markdown(response)
-    except Exception as e:
-        # Handle errors gracefully
-        error_message = f"An error occurred: {str(e)}"
-        st.session_state.messages.append({"role": "Siddhi", "content": error_message})
-        
-        with st.chat_message("Siddhi"):
-            st.markdown(error_message)
+    #     with st.chat_message("Siddhi"):
+    #         st.markdown(error_message)
