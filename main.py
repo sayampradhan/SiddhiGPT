@@ -63,3 +63,7 @@ if prompt := st.chat_input("You: "):
         
     #     with st.chat_message("Siddhi"):
     #         st.markdown(error_message)
+footer_html = """<div style='text-align: center;'>
+  <p>Developed with ❤️ by Sayam</p>
+</div>"""
+st.markdown(footer_html, unsafe_allow_html=True)
